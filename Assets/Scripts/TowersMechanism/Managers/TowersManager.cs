@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using Game.Managers;
 using Globals;
 using MonoSingleton;
 using ScriptableObjects;
+using TowersMechanism.Components;
 using TowersMechanism.Models;
 using UI.Managers;
 using UI.Screens.Game;
@@ -20,6 +22,8 @@ namespace TowersMechanism.Managers
         private RaycastHit raycastHit;
         private GameScreen gameScreen;
         private BulletsPool bulletsPool;
+
+        private List<TowerComponent> towersInScene = new List<TowerComponent>();
 
         protected override void Awake()
         {
@@ -65,6 +69,7 @@ namespace TowersMechanism.Managers
             placementStarted = false;
             PlaceOnMap(hit);
             currentTower.TowerComponent.SetActiveTowerRange(false);
+            towersInScene.Add(currentTower.TowerComponent);
             ResetCurrentTower();
             gameScreen.SetActiveGameModeScreen(true);
         }
@@ -77,6 +82,19 @@ namespace TowersMechanism.Managers
         public TowersContainer GetTowersContainer()
         {
             return towers;
+        }
+
+        public void RestartGame()
+        {
+            ClearTowersFromScene();
+        }
+
+        private void ClearTowersFromScene()
+        {
+            foreach (var tower in towersInScene)
+            {
+                DestroyImmediate(tower.gameObject);
+            }
         }
 
         private void PlaceOnMap(RaycastHit hit)

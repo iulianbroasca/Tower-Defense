@@ -49,6 +49,12 @@ namespace BalloonsMechanism.Managers
             gameStarted = false;
         }
 
+        public void RestartGame()
+        {
+            balloonsInstantiationConfig.ResetTimeInterval();
+            balloonsPool.ClearBalloonsFromScene();
+        }
+
         private IEnumerator InstantiateBalloons()
         {
             while (true)

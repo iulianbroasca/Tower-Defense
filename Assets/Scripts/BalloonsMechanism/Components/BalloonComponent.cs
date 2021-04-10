@@ -55,6 +55,11 @@ namespace BalloonsMechanism.Components
             BalloonsManager.Instance.BalloonTouched(this);
         }
 
+        public static void RestartGame()
+        {
+            completed = false;
+        }
+
         private void SetRoutePositions(Vector3[] routePositions)
         {
             if (positions == null)

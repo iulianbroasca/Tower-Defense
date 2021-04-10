@@ -17,6 +17,12 @@ namespace UI.Screens.Game
             SetLevelText(GameManager.Instance.GetCurrentLevel().ToString());
         }
 
+        public override void DisableScreen()
+        {
+            base.DisableScreen();
+            SetActiveGameModeScreen(true);
+        }
+
         public void SetMoneyText(string money)
         {
             gameMode.SetMoneyText(money);

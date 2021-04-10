@@ -1,4 +1,7 @@
+using Game.Managers;
 using UI.BaseScripts;
+using UI.Managers;
+using UI.Screens.Game;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +19,8 @@ namespace UI.Screens.GameOver
 
         private void Restart()
         {
-            Debug.Log("Restart");
+            GameManager.Instance.RestartGame();
+            ScreensManager.Instance.SwitchScreen(typeof(GameScreen));
         }
     }
 }

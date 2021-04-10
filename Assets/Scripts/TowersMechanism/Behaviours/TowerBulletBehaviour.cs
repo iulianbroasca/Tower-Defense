@@ -1,5 +1,6 @@
 using System.Collections;
 using BalloonsMechanism.Components;
+using Globals;
 using TowersMechanism.Managers;
 using UnityEngine;
 
@@ -28,7 +29,7 @@ namespace TowersMechanism.Behaviours
 
         private IEnumerator Destroy()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(Constants.BulletLife);
             TowersManager.Instance.GetBulletsPool().AddObjectToPool(this);
         }
 

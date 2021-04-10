@@ -1,6 +1,9 @@
+using BalloonsMechanism.Components;
 using BalloonsMechanism.Managers;
 using Game.Models;
+using Globals;
 using MonoSingleton;
+using TowersMechanism.Managers;
 using UI.Managers;
 using UI.Screens.Game;
 
@@ -21,7 +24,7 @@ namespace Game.Managers
         private void Start()
         {
             gameScreen = (GameScreen)ScreensManager.Instance.GetScreen(typeof(GameScreen));
-            level = 1;
+            SetLevel(1);
         }
 
         public void PlayGame()
@@ -32,9 +35,19 @@ namespace Game.Managers
 
         public void LevelCompleted()
         {
-            level++;
+            SetLevel(level + 1);
             gameScreen.SetLevelText(level.ToString());
             gameScreen.SetActiveGameModeScreen(true);
+        }
+
+        public void RestartGame()
+        {
+            SetCurrentMoney(Constants.PlayerMoney);
+            SetLevel(1);
+
+            TowersManager.Instance.RestartGame();
+            BalloonsManager.Instance.RestartGame();
+            BalloonComponent.RestartGame();
         }
 
         public float GetCurrentMoney()
@@ -61,6 +74,11 @@ namespace Game.Managers
         {
             currentPlayer.Money = price;
             gameScreen.SetMoneyText(currentPlayer.Money.ToString());
+        }
+
+        private void SetLevel(int value)
+        {
+            level = value;
         }
 
         private void InitializeGame()
