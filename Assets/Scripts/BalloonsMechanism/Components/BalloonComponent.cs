@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using BalloonsMechanism.Managers;
 using Map.Managers;
@@ -15,12 +14,13 @@ namespace BalloonsMechanism.Components
 
         private int currentIndexPosition;
 
-        private bool touched = false;
+        private bool touched;
 
         private void OnEnable()
         {
             SetRoutePositions(MapsManager.Instance.GetCurrentMap().GetRoutePositions());
             transform.localPosition = positions.First();
+            currentIndexPosition = 0;
             touched = false;
         }
 

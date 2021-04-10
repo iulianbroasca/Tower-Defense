@@ -17,8 +17,8 @@ MonoBehaviour:
     towerData:
       id: 0
       name: Capsule
-      price: 100
-      range: 3
+      price: 130
+      range: 4
       damage: 1
       bulletSpeed: 10
       bulletLoadingTime: 0.5
@@ -26,8 +26,8 @@ MonoBehaviour:
     towerData:
       id: 10
       name: Cube
-      price: 150
-      range: 3
+      price: 200
+      range: 6
       damage: 1
       bulletSpeed: 10
       bulletLoadingTime: 0.7
@@ -35,8 +35,8 @@ MonoBehaviour:
     towerData:
       id: 20
       name: Sphere
-      price: 300
-      range: 5
+      price: 350
+      range: 8
       damage: 1
       bulletSpeed: 10
       bulletLoadingTime: 1

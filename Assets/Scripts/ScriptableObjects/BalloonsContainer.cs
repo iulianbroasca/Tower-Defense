@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using BalloonsMechanism.Components;
 using BalloonsMechanism.Models;
 using UnityEngine;
@@ -8,15 +7,24 @@ namespace ScriptableObjects
     [CreateAssetMenu(fileName = "Balloons container", menuName = "Create data containers/Balloons container")]
     public class BalloonsContainer : ScriptableObject
     {
-        [SerializeField] private BalloonsRoute balloonsRoute = new BalloonsRoute();
+        [SerializeField] private BalloonsRouteConfiguration balloonsRouteConfiguration = new BalloonsRouteConfiguration();
         [SerializeField] private BalloonComponent balloonComponent;
-        [SerializeField, Range(1,10)] private int numberOfBalloonsPerLevel = 1;
+        [SerializeField, Range(10,100)] private int moneyPerBalloon = 50;
+        [SerializeField, Range(1,4)] 
+        [Tooltip("It multiplies with the level of the game.")]
+        private int numberOfBalloonsPerLevel = 1;
 
         public int NumberOfBalloonsPerLevel => numberOfBalloonsPerLevel;
+        public int MoneyPerBalloon => moneyPerBalloon;
 
         public BalloonComponent GetBalloonComponent()
         {
             return balloonComponent;
+        }
+
+        public BalloonsRouteConfiguration GetBalloonsRouteConfiguration()
+        {
+            return balloonsRouteConfiguration;
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using BalloonsMechanism.Components;
+using BalloonsMechanism.Models;
 using Game.Managers;
 using MonoSingleton;
 using ScriptableObjects;
@@ -15,12 +16,12 @@ namespace BalloonsMechanism.Managers
 
         private bool gameStarted;
         private int numberBalloonsRemained;
+        private BalloonsRouteConfiguration balloonsRouteConfiguration;
+        private (float inferior, float superior) timeInterval;
         protected override void Awake()
         {
             base.Awake();
-            balloonsPool = gameObject.AddComponent<BalloonsPool>();
-            balloonsPool.RegisterComponent(balloonsContainer.GetBalloonComponent());
-            balloonsPool.RegisterBalloonsDestroyed(BalloonsDestroyed);
+            Initialize();
         }
 
         private void Start()
@@ -30,6 +31,7 @@ namespace BalloonsMechanism.Managers
 
         public void BalloonTouched(BalloonComponent component)
         {
+            GameManager.Instance.IncreaseMoney(balloonsContainer.MoneyPerBalloon);
             balloonsPool.AddObjectToPool(component);
         }
 
@@ -37,6 +39,8 @@ namespace BalloonsMechanism.Managers
         {
             numberBalloonsRemained = level * balloonsContainer.NumberOfBalloonsPerLevel;
             balloonsPool.PreparePoolForLevel(numberBalloonsRemained);
+            timeInterval = balloonsRouteConfiguration.GetNextTimeInterval();
+            Debug.Log(timeInterval);
             gameStarted = true;
         }
 
@@ -50,8 +54,7 @@ namespace BalloonsMechanism.Managers
             while (true)
             {
                 yield return new WaitUntil(() => gameStarted);
-
-                yield return new WaitForSeconds(Random.Range(0, 3.0f));
+                yield return new WaitForSeconds(Random.Range(timeInterval.inferior, timeInterval.superior));
 
                 balloonsPool.GetObjectFromPool();
                 DecreaseNumberBalloons();
@@ -70,6 +73,16 @@ namespace BalloonsMechanism.Managers
         private void BalloonsDestroyed()
         {
             GameManager.Instance.LevelCompleted();
+        }
+
+        private void Initialize()
+        {
+            balloonsPool = gameObject.AddComponent<BalloonsPool>();
+            balloonsPool.RegisterComponent(balloonsContainer.GetBalloonComponent());
+            balloonsPool.RegisterBalloonsDestroyed(BalloonsDestroyed);
+
+            balloonsRouteConfiguration = balloonsContainer.GetBalloonsRouteConfiguration();
+            balloonsRouteConfiguration.ResetTimeInterval();
         }
 
     }

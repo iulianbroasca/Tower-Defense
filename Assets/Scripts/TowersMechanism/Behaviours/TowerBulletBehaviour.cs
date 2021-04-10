@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using BalloonsMechanism.Components;
 using TowersMechanism.Managers;
@@ -10,6 +11,8 @@ namespace TowersMechanism.Behaviours
         private float damage;
         private Coroutine coroutine; 
         private Rigidbody rigidbody;
+
+        private bool touched;
         public Rigidbody RigidbodyComponent
         {
             get
@@ -18,6 +21,11 @@ namespace TowersMechanism.Behaviours
                     rigidbody = GetComponent<Rigidbody>();
                 return rigidbody;
             }
+        }
+
+        private void OnEnable()
+        {
+            touched = false;
         }
 
         private IEnumerator Destroy()
@@ -44,11 +52,16 @@ namespace TowersMechanism.Behaviours
 
         private void OnCollisionEnter(Collision other)
         {
+            if(touched)
+               return;
+             
             var balloon = other.gameObject.GetComponentInParent<BalloonComponent>();
             if (balloon != null)
             {
                 balloon.BalloonTouched();
             }
+
+            touched = true;
         }
     
     }

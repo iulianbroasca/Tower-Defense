@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbbc4f58cecda14408fd2321457ff42f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balloons: {fileID: 11400000, guid: 2e984b7575a60614c84e1bfc0a52acd1, type: 2}
+  balloonsContainer: {fileID: 11400000, guid: 2e984b7575a60614c84e1bfc0a52acd1, type: 2}
 --- !u!1 &632493465
 GameObject:
   m_ObjectHideFlags: 0

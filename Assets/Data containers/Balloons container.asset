@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771621d80ccbb87498862973e89b7a10, type: 3}
   m_Name: Balloons container
   m_EditorClassIdentifier: 
-  balloonsRoute:
-    minLeft: 0
-    maxLeft: 0
-    minRight: 0
-    maxRight: 0
+  balloonsRouteConfiguration:
+    infMinTime: 0
+    infMaxTime: 2
+    supMinTime: 1
+    supMaxTime: 2.5
+    minStep: 0.1
+    maxStep: 0.85
+    stepForStep: 0.25
   balloonComponent: {fileID: 6361020970718966053, guid: 9702355dc59d66e499c3b8e600be9fa6, type: 3}
+  moneyPerBalloon: 40
   numberOfBalloonsPerLevel: 1
