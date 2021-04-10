@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771621d80ccbb87498862973e89b7a10, type: 3}
+  m_Name: Balloons container
+  m_EditorClassIdentifier: 
+  balloonsRoute:
+    minLeft: 0
+    maxLeft: 0
+    minRight: 0
+    maxRight: 0
+  balloonComponent: {fileID: 6361020970718966053, guid: 9702355dc59d66e499c3b8e600be9fa6, type: 3}
+  numberOfBalloonsPerLevel: 1

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using TowerMechanism.Behaviours;
-using TowerMechanism.Models;
+using TowersMechanism.Behaviours;
+using TowersMechanism.Models;
 using UnityEngine;
 
 namespace ScriptableObjects
@@ -10,6 +10,8 @@ namespace ScriptableObjects
     {
         [SerializeField] private List<TowerItem> towers = new List<TowerItem>();
         [SerializeField] private TowerRangeBehaviour towerRangeBehaviour;
+        [SerializeField] private TowerBulletBehaviour towerBulletBehaviour;
+        [SerializeField] private TowerAttackBehaviour towerAttackBehaviour;
 
         public List<TowerItem> GetTowers()
         {
@@ -21,9 +23,19 @@ namespace ScriptableObjects
             return towerRangeBehaviour;
         }
 
-        public TowerItem GetTower(int id)
+        public TowerAttackBehaviour GetTowerAttackBehaviour()
         {
-            return towers.Find(it => it.Id == id);
+            return towerAttackBehaviour;
+        }
+
+        public TowerBulletBehaviour GetTowerBulletBehaviour()
+        {
+            return towerBulletBehaviour;
+        }
+
+        public TowerItem GetTowerItem(int id)
+        {
+            return towers.Find(it => it.TowerData.Id == id);
         }
     }
 }

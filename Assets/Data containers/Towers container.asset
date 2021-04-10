@@ -13,22 +13,33 @@ MonoBehaviour:
   m_Name: Towers container
   m_EditorClassIdentifier: 
   towers:
-  - id: 0
-    name: Capsule
-    towerComponent: {fileID: -9001248457527836770, guid: f94b214a72f90e44998334197596db1d, type: 3}
+  - towerComponent: {fileID: -9001248457527836770, guid: f94b214a72f90e44998334197596db1d, type: 3}
     towerData:
+      id: 0
+      name: Capsule
       price: 100
       range: 3
-  - id: 10
-    name: Cube
-    towerComponent: {fileID: -1572454670350873089, guid: c92521be1c6f66d479900ca3251941ca, type: 3}
+      damage: 1
+      bulletSpeed: 10
+      bulletLoadingTime: 0.5
+  - towerComponent: {fileID: -1572454670350873089, guid: c92521be1c6f66d479900ca3251941ca, type: 3}
     towerData:
+      id: 10
+      name: Cube
       price: 150
       range: 3
-  - id: 20
-    name: Sphere
-    towerComponent: {fileID: 2163648877642404003, guid: 4ccb0f305a0c5aa4796a5d682deb4cd1, type: 3}
+      damage: 1
+      bulletSpeed: 10
+      bulletLoadingTime: 0.7
+  - towerComponent: {fileID: 2163648877642404003, guid: 4ccb0f305a0c5aa4796a5d682deb4cd1, type: 3}
     towerData:
+      id: 20
+      name: Sphere
       price: 300
       range: 5
-  towerRangeBehaviour: {fileID: 1022773194317722792, guid: 71e31bc0fb0f75548a137a9ef49da1b5, type: 3}
+      damage: 1
+      bulletSpeed: 10
+      bulletLoadingTime: 1
+  towerRangeBehaviour: {fileID: 2034788299661086410, guid: caee200e71b4bf345b9b7fc6e1596d8b, type: 3}
+  towerBulletBehaviour: {fileID: 5428930310641120121, guid: ac7e1926842802f4da57e4d327696be7, type: 3}
+  towerAttackBehaviour: {fileID: 8682017642342239773, guid: 6599ae1816929ec43ac22318d29e0473, type: 3}

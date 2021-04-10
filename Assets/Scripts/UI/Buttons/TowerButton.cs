@@ -1,6 +1,5 @@
-using Globals;
-using TowerMechanism.Managers;
-using TowerMechanism.Models;
+using TowersMechanism.Managers;
+using TowersMechanism.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,26 +7,28 @@ namespace UI.Buttons
 {
     public class TowerButton : MonoBehaviour
     {
-        [SerializeField] private Text textButton;
+        [SerializeField] private Text towerNameText;
+        [SerializeField] private Text towerPriceText;
         [SerializeField] private Button button;
 
         private float towerPrice;
 
-        public void InitializationButton(TowerItem towerItem)
+        public void InitializationButton(TowerData towerData)
         {
-            SetText(towerItem.Name);
-            SetButton(towerItem.Id);
-            SetPrice(towerItem.TowerData.Price);
+            SetText(towerNameText, towerData.Name);
+            SetButton(towerData.Id);
+            SetPrice(towerData.Price);
+            SetText(towerPriceText, towerPrice.ToString());
         }
 
-        public void RefreshButtonAvailability()
+        public void RefreshButtonAvailability(float currentMoney)
         {
-            gameObject.SetActive(Constants.PlayerMoney > towerPrice);
+            button.interactable = currentMoney >= towerPrice;
         }
 
-        private void SetText(string towerName)
+        private void SetText(Text text, string value)
         {
-            textButton.text = towerName;
+            text.text = value;
         }
 
         private void SetPrice(float price)
@@ -39,7 +40,7 @@ namespace UI.Buttons
         {
             button.onClick.AddListener(() =>
             {
-                TowerManager.Instance.StartPlacement(towerId);
+                TowersManager.Instance.StartPlacement(towerId);
             });
         }
     }

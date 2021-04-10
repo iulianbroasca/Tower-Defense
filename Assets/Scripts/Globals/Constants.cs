@@ -4,19 +4,18 @@ namespace Globals
 {
     public static class Constants
     {
-        public const int PlayerMoney = 10000;
+        public const int PlayerMoney = 100;
         public static readonly Vector3 TowerRangePosition =  new Vector3(0,0.2f,0);
 
-        public static class Tags
-        {
-            public const string MainCanvas = "MainCanvas";
-            public const string HomeScreen = "HomeScreen";
-        }
+        public const int MaxBullets = 10;
 
-        public static class Layers
-        {
-            public const string Map = "Map";
-            public const string Route = "Route";
-        }
+        public const string MainCanvasTag = "MainCanvas";
+        public const string HomeScreenTag = "HomeScreen";
+
+        public const string MapLayer = "Map";
+        public const string BalloonLayer = "Balloon";
+
+        public const string MoneyText = "Money: ";
+        public const string LevelText = "Level: ";
     }
 }
