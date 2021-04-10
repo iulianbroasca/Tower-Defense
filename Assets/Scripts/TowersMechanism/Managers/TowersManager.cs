@@ -101,7 +101,6 @@ namespace TowersMechanism.Managers
                 currentTower.TowerData.Range, currentTower.TowerData.BulletLoadingTime);
 
             currentTower.TowerComponent.SetTowerAttackBehaviour(towers.GetTowerAttackBehaviour(),
-                currentTower.TowerData.Damage,
                 currentTower.TowerData.BulletSpeed);
         }
     }

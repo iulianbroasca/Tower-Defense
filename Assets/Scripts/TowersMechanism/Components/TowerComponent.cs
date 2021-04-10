@@ -17,10 +17,9 @@ namespace TowersMechanism.Components
             towerRangeBehaviour.RegisterEventDetectedBalloons(AttackBalloons);
         }
 
-        public void SetTowerAttackBehaviour(TowerAttackBehaviour towerAttack, float damage, float bulletSpeed)
+        public void SetTowerAttackBehaviour(TowerAttackBehaviour towerAttack, float bulletSpeed)
         {
             towerAttackBehaviour = Instantiate(towerAttack, transform);
-            towerAttackBehaviour.Damage = damage;
             towerAttackBehaviour.BulletSpeed = bulletSpeed;
         }
 

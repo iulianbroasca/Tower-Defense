@@ -68,5 +68,10 @@ namespace BalloonsMechanism.Components
             completed = true;
             ScreensManager.Instance.SwitchScreen(typeof(GameOverScreen));
         }
+
+        private void OnDisable()
+        {
+            transform.localPosition = positions.First();
+        }
     }
 }

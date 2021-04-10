@@ -4,7 +4,7 @@ namespace Globals
 {
     public static class Constants
     {
-        public const int PlayerMoney = 100;
+        public const int PlayerMoney = 150;
         public static readonly Vector3 TowerRangePosition =  new Vector3(0,0.2f,0);
 
         public const int MaxBullets = 10;

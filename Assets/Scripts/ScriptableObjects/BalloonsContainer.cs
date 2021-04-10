@@ -7,7 +7,7 @@ namespace ScriptableObjects
     [CreateAssetMenu(fileName = "Balloons container", menuName = "Create data containers/Balloons container")]
     public class BalloonsContainer : ScriptableObject
     {
-        [SerializeField] private BalloonsRouteConfiguration balloonsRouteConfiguration = new BalloonsRouteConfiguration();
+        [SerializeField] private BalloonsInstantiationConfig balloonsInstantiationConfig = new BalloonsInstantiationConfig();
         [SerializeField] private BalloonComponent balloonComponent;
         [SerializeField, Range(10,100)] private int moneyPerBalloon = 50;
         [SerializeField, Range(1,4)] 
@@ -22,9 +22,9 @@ namespace ScriptableObjects
             return balloonComponent;
         }
 
-        public BalloonsRouteConfiguration GetBalloonsRouteConfiguration()
+        public BalloonsInstantiationConfig GetBalloonsRouteConfiguration()
         {
-            return balloonsRouteConfiguration;
+            return balloonsInstantiationConfig;
         }
     }
 }

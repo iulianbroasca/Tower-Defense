@@ -10,7 +10,6 @@ namespace TowersMechanism.Models
         [SerializeField] private string name;
         [SerializeField] private float price;
         [SerializeField] private float range;
-        [SerializeField] private float damage;
         [SerializeField] private float bulletSpeed;
         [SerializeField] private float bulletLoadingTime;
 
@@ -18,7 +17,6 @@ namespace TowersMechanism.Models
         public string Name => name;
         public float Price => price;
         public float Range => range;
-        public float Damage => damage;
         public float BulletSpeed => bulletSpeed;
         public float BulletLoadingTime => bulletLoadingTime;
     }

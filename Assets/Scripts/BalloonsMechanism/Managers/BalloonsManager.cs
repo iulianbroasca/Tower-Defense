@@ -16,7 +16,7 @@ namespace BalloonsMechanism.Managers
 
         private bool gameStarted;
         private int numberBalloonsRemained;
-        private BalloonsRouteConfiguration balloonsRouteConfiguration;
+        private BalloonsInstantiationConfig balloonsInstantiationConfig;
         private (float inferior, float superior) timeInterval;
         protected override void Awake()
         {
@@ -39,7 +39,7 @@ namespace BalloonsMechanism.Managers
         {
             numberBalloonsRemained = level * balloonsContainer.NumberOfBalloonsPerLevel;
             balloonsPool.PreparePoolForLevel(numberBalloonsRemained);
-            timeInterval = balloonsRouteConfiguration.GetNextTimeInterval();
+            timeInterval = balloonsInstantiationConfig.GetNextTimeInterval();
             Debug.Log(timeInterval);
             gameStarted = true;
         }
@@ -81,8 +81,8 @@ namespace BalloonsMechanism.Managers
             balloonsPool.RegisterComponent(balloonsContainer.GetBalloonComponent());
             balloonsPool.RegisterBalloonsDestroyed(BalloonsDestroyed);
 
-            balloonsRouteConfiguration = balloonsContainer.GetBalloonsRouteConfiguration();
-            balloonsRouteConfiguration.ResetTimeInterval();
+            balloonsInstantiationConfig = balloonsContainer.GetBalloonsRouteConfiguration();
+            balloonsInstantiationConfig.ResetTimeInterval();
         }
 
     }

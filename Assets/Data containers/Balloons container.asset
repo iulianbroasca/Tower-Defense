@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771621d80ccbb87498862973e89b7a10, type: 3}
   m_Name: Balloons container
   m_EditorClassIdentifier: 
-  balloonsRouteConfiguration:
+  balloonsInstantiationConfig:
     infMinTime: 0
     infMaxTime: 2
     supMinTime: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace BalloonsMechanism.Models
 {
     [Serializable]
-    public class BalloonsRouteConfiguration
+    public class BalloonsInstantiationConfig
     {
         [SerializeField] private float infMinTime;
         [SerializeField] private float infMaxTime;

@@ -1,9 +1,9 @@
 using TowersMechanism.Behaviours;
-using ObjectPool;
+using ObjectPool.BaseScripts;
 
 namespace TowersMechanism
 {
-    public class BulletsPool : ObjectPool<TowerBulletBehaviour>
+    public class BulletsPool : BaseObjectPool<TowerBulletBehaviour>
     {
 
     }
