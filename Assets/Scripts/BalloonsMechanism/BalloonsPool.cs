@@ -15,9 +15,9 @@ namespace BalloonsMechanism
 
         public override BalloonComponent GetObjectFromPool()
         {
-            numberBalloonsInScene++;
             var balloon = base.GetObjectFromPool();
             balloonsInScene.Add(balloon);
+            numberBalloonsInScene++;
             return balloon;
         }
 
@@ -50,7 +50,7 @@ namespace BalloonsMechanism
 
         private void CheckSceneContainsBalloons()
         {
-            if (numberBalloonsInScene == numberBalloonsOnLevel)
+            if (numberBalloonsInScene == numberBalloonsOnLevel && balloonsInScene.Count == 0)
             {
                 balloonsDestroyed.Invoke();
             }
