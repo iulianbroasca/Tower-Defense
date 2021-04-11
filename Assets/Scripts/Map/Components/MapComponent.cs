@@ -4,23 +4,29 @@ namespace Map.Components
 {
     public class MapComponent : MonoBehaviour
     {
-        private Vector3[] routePositions;
-
-        private void Awake()
-        {
-            InitializeRoutePositions();
-        }
+        [SerializeField] private Vector3[] routePositions;
+        [SerializeField] private GameObject cameraPoint;
 
         public Vector3[] GetRoutePositions()
         {
-            return routePositions;
+            return ReturnGlobalPoints(routePositions);
         }
 
-        private void InitializeRoutePositions()
+        public Vector3 GetCameraPoint()
         {
-            var lineRenderer = GetComponentInChildren<LineRenderer>();
-            routePositions = new Vector3[lineRenderer.positionCount];
-            lineRenderer.GetPositions(routePositions);
+            return cameraPoint.transform.position;
+        }
+
+        private Vector3[] ReturnGlobalPoints(Vector3[] positions)
+        {
+            var localPositions = new Vector3[positions.Length];
+
+            for (var i = 0; i < positions.Length; i++)
+            {
+                localPositions[i] = transform.TransformPoint(positions[i]);
+            }
+
+            return localPositions;
         }
     }
 }

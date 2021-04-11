@@ -15,7 +15,7 @@ MonoBehaviour:
   balloonsInstantiationConfig:
     infMinTime: 0
     infMaxTime: 2
-    supMinTime: 1
+    supMinTime: 0.5
     supMaxTime: 2.5
     minStep: 0.1
     maxStep: 0.85

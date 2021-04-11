@@ -2,6 +2,7 @@ using Game.Managers;
 using UI.BaseScripts;
 using UI.Managers;
 using UI.Screens.Game;
+using UI.Screens.MapSelection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +21,7 @@ namespace UI.Screens.GameOver
         private void Restart()
         {
             GameManager.Instance.RestartGame();
-            ScreensManager.Instance.SwitchScreen(typeof(GameScreen));
+            ScreensManager.Instance.SwitchScreen(typeof(MapSelectionScreen));
         }
     }
 }

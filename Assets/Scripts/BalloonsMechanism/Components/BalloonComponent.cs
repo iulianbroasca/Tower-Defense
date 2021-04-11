@@ -58,6 +58,7 @@ namespace BalloonsMechanism.Components
         public static void RestartGame()
         {
             completed = false;
+            positions = null;
         }
 
         private void SetRoutePositions(Vector3[] routePositions)

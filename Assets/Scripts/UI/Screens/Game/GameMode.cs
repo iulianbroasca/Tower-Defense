@@ -9,11 +9,10 @@ namespace UI.Screens.Game
     {
         [SerializeField] private Text moneyTextComponent;
         [SerializeField] private Text levelTextComponent;
-        private Button playButton;
+        [SerializeField] private Button playButton;
 
         private void Start()
         {
-            playButton = GetComponentInChildren<Button>();
             playButton.onClick.AddListener(() =>
             {
                 GameManager.Instance.PlayGame();

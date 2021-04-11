@@ -15,6 +15,7 @@ namespace UI.Screens.Game
             gameMode = GetComponentInChildren<GameMode>();
             SetMoneyText(GameManager.Instance.GetCurrentMoney().ToString());
             SetLevelText(GameManager.Instance.GetCurrentLevel().ToString());
+            gameMode.SetInteractableOnPlayButton(false);
         }
 
         public override void DisableScreen()

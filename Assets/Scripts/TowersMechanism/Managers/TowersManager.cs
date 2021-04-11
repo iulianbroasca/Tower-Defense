@@ -95,6 +95,7 @@ namespace TowersMechanism.Managers
             {
                 DestroyImmediate(tower.gameObject);
             }
+            towersInScene.Clear();
         }
 
         private void PlaceOnMap(RaycastHit hit)
