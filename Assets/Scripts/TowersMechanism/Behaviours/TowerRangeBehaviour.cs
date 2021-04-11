@@ -12,17 +12,13 @@ namespace TowersMechanism.Behaviours
         private float radius;
         private float bulletLoadingTime;
         private int balloonLayer;
-        private Collider[] balloons;
-
-        private Action<Collider[], int> detectedBalloons;
-
         private bool loading;
+        private Collider[] balloons;
+        private Action<Collider[], int> detectedBalloons;
 
         private void Awake()
         {
-            balloonLayer = LayerMask.GetMask(Constants.BalloonLayer);
-            balloons = new Collider[Constants.MaxBullets];
-            StartCoroutine(LoadBullets());
+            Initialize();
         }
 
         private void FixedUpdate()
@@ -67,6 +63,13 @@ namespace TowersMechanism.Behaviours
                 yield return new WaitForSeconds(bulletLoadingTime);
                 loading = false;
             }
+        }
+
+        private void Initialize()
+        {
+            balloonLayer = LayerMask.GetMask(Constants.BalloonLayer);
+            balloons = new Collider[Constants.MaxBullets];
+            StartCoroutine(LoadBullets());
         }
     }
 }

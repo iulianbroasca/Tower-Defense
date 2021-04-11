@@ -36,10 +36,7 @@ namespace BalloonsMechanism.Components
 
         private void LateUpdate()
         {
-            if (completed)
-                return;
-
-            if (!(Vector3.Distance(transform.position, positions[currentIndexPosition]) < 0.1f)) 
+            if (completed || !(Vector3.Distance(transform.position, positions[currentIndexPosition]) < 0.1f)) 
                 return;
 
             currentIndexPosition++;
@@ -51,6 +48,7 @@ namespace BalloonsMechanism.Components
         {
             if(touched)
                 return;
+
             touched = true;
             BalloonsManager.Instance.BalloonTouched(this);
         }

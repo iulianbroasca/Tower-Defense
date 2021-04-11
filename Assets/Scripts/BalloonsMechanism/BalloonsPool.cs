@@ -7,11 +7,11 @@ namespace BalloonsMechanism
 {
     public class BalloonsPool : BaseObjectPool<BalloonComponent>
     {
+        private readonly List<BalloonComponent> balloonsInScene = new List<BalloonComponent>();
+
         private int numberBalloonsInScene;
         private int numberBalloonsOnLevel;
         private Action balloonsDestroyed;
-
-        private readonly List<BalloonComponent> balloonsInScene = new List<BalloonComponent>();
 
         public override BalloonComponent GetObjectFromPool()
         {
@@ -21,10 +21,10 @@ namespace BalloonsMechanism
             return balloon;
         }
 
-        public override void AddObjectToPool(BalloonComponent component)
+        public override void AddObjectToPool(BalloonComponent balloonComponent)
         {
-            balloonsInScene.Remove(component);
-            base.AddObjectToPool(component);
+            balloonsInScene.Remove(balloonComponent);
+            base.AddObjectToPool(balloonComponent);
             CheckSceneContainsBalloons();
         }
 

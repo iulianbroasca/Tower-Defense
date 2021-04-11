@@ -15,16 +15,10 @@ namespace Game.Managers
         private GameScreen gameScreen;
 
         private int level;
-        protected override void Awake()
-        {
-            base.Awake();
-            InitializeGame();
-        }
-
+        
         private void Start()
         {
-            gameScreen = (GameScreen)ScreensManager.Instance.GetScreen(typeof(GameScreen));
-            SetLevel(1);
+            InitializeGame();
         }
 
         public void PlayGame()
@@ -84,6 +78,8 @@ namespace Game.Managers
         private void InitializeGame()
         {
             currentPlayer = new User();
+            gameScreen = (GameScreen)ScreensManager.Instance.GetScreen(typeof(GameScreen));
+            SetLevel(1);
         }
     }
 }

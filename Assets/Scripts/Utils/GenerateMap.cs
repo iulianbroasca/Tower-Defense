@@ -1,5 +1,4 @@
 using Map.Components;
-using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -27,7 +26,7 @@ namespace Utils
             grass.transform.parent = tilesGameObject.transform;
             margins.transform.parent = tilesGameObject.transform;
 
-            Vector3 current = Vector3.zero;
+            var current = Vector3.zero;
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)

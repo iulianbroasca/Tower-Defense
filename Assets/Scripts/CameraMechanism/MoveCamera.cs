@@ -1,11 +1,10 @@
+using Globals;
 using UnityEngine;
 
 namespace CameraMechanism
 {
     public class MoveCamera : MonoBehaviour
     {
-        [SerializeField] private float speed;
-
         private bool arrived = true;
         private Vector3 target;
 
@@ -14,9 +13,8 @@ namespace CameraMechanism
             if(arrived)
                 return;
 
-            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target, Constants.CameraSpeed * Time.deltaTime);
 
-            // Check if the position of the cube and sphere are approximately equal.
             if (Vector3.Distance(transform.position, target) < 0.001f)
             {
                 arrived = true;

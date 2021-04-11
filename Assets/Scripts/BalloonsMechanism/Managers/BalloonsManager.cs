@@ -13,11 +13,12 @@ namespace BalloonsMechanism.Managers
     {
         [SerializeField] private BalloonsContainer balloonsContainer;
         private BalloonsPool balloonsPool;
+        private BalloonsInstantiationConfig balloonsInstantiationConfig;
 
         private bool gameStarted;
         private int numberBalloonsRemained;
-        private BalloonsInstantiationConfig balloonsInstantiationConfig;
         private (float inferior, float superior) timeInterval;
+
         protected override void Awake()
         {
             base.Awake();
@@ -40,7 +41,6 @@ namespace BalloonsMechanism.Managers
             numberBalloonsRemained = level * balloonsContainer.NumberOfBalloonsPerLevel;
             balloonsPool.PreparePoolForLevel(numberBalloonsRemained);
             timeInterval = balloonsInstantiationConfig.GetNextTimeInterval();
-            Debug.Log(timeInterval);
             gameStarted = true;
         }
 

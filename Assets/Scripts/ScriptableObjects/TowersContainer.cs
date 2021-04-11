@@ -13,29 +13,14 @@ namespace ScriptableObjects
         [SerializeField] private TowerBulletBehaviour towerBulletBehaviour;
         [SerializeField] private TowerAttackBehaviour towerAttackBehaviour;
 
-        public List<TowerItem> GetTowers()
-        {
-            return towers;
-        }
+        public List<TowerItem> GetTowers() => towers;
 
-        public TowerRangeBehaviour GetTowerRangeBehaviour()
-        {
-            return towerRangeBehaviour;
-        }
+        public TowerRangeBehaviour GetTowerRangeBehaviour() => towerRangeBehaviour;
 
-        public TowerAttackBehaviour GetTowerAttackBehaviour()
-        {
-            return towerAttackBehaviour;
-        }
+        public TowerAttackBehaviour GetTowerAttackBehaviour() => towerAttackBehaviour;
 
-        public TowerBulletBehaviour GetTowerBulletBehaviour()
-        {
-            return towerBulletBehaviour;
-        }
+        public TowerBulletBehaviour GetTowerBulletBehaviour() => towerBulletBehaviour;
 
-        public TowerItem GetTowerItem(int id)
-        {
-            return towers.Find(it => it.TowerData.Id == id);
-        }
+        public TowerItem GetTowerItem(int id) => towers.Find(it => it.TowerData.Id == id);
     }
 }

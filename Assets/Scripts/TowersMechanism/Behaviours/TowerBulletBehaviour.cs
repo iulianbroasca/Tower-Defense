@@ -27,12 +27,6 @@ namespace TowersMechanism.Behaviours
             touched = false;
         }
 
-        private IEnumerator Destroy()
-        {
-            yield return new WaitForSeconds(Constants.BulletLife);
-            TowersManager.Instance.GetBulletsPool().AddObjectToPool(this);
-        }
-
         public void Attack(Vector3 towerPosition, Vector3 targetPosition, float bulletSpeed)
         {
             transform.position = towerPosition;
@@ -40,12 +34,22 @@ namespace TowersMechanism.Behaviours
             coroutine = StartCoroutine(Destroy());
         }
 
+        private void ResetRigidbody()
+        {
+            RigidbodyComponent.velocity = Vector3.zero;
+            RigidbodyComponent.angularVelocity = Vector3.zero;
+        }
+        private IEnumerator Destroy()
+        {
+            yield return new WaitForSeconds(Constants.BulletLife);
+            TowersManager.Instance.GetBulletsPool().AddObjectToPool(this);
+        }
+
         private void OnDisable()
         {
             if (coroutine!=null)
                 StopCoroutine(coroutine);
-            RigidbodyComponent.velocity = Vector3.zero;
-            RigidbodyComponent.angularVelocity = Vector3.zero;
+            ResetRigidbody();
         }
 
         private void OnCollisionEnter(Collision other)

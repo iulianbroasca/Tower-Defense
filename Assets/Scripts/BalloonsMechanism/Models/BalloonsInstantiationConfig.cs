@@ -62,12 +62,10 @@ namespace BalloonsMechanism.Models
                 infTime -= step;
                 return false;
             }
-            else
-            {
-                infTime = infMinTime;
-                ResetStep();
-                return true;
-            }
+
+            infTime = infMinTime;
+            ResetStep();
+            return true;
         }
 
         private bool DecreaseSuperiorTime()
@@ -80,11 +78,9 @@ namespace BalloonsMechanism.Models
                 supTime -= step;
                 return false;
             }
-            else
-            {
-                supTime = supMinTime;
-                return true;
-            }
+
+            supTime = supMinTime;
+            return true;
         }
 
         private void DecreaseStep()

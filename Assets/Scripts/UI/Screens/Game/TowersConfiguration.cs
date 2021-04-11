@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Game;
 using Game.Managers;
 using TowersMechanism.Managers;
 using TowersMechanism.Models;
@@ -13,15 +12,11 @@ namespace UI.Screens.Game
         [SerializeField] private RectTransform contentPanel;
         [SerializeField] private TowerButton towerButton;
 
-        private TowersManager towersManager;
-        private GameManager gameManager;
         private List<TowerButton> towerButtons = new List<TowerButton>();
 
         private void Awake()
         {
-            towersManager = TowersManager.Instance;
-            gameManager = GameManager.Instance;
-            PopulateContentPanel(towersManager.GetTowersContainer().GetTowers());
+            PopulateContentPanel(TowersManager.Instance.GetTowersContainer().GetTowers());
             RefreshButtonsAvailability();
         }
 
@@ -49,7 +44,7 @@ namespace UI.Screens.Game
 
         private void RefreshButtonsAvailability()
         {
-            var currentMoney = gameManager.GetCurrentMoney();
+            var currentMoney = GameManager.Instance.GetCurrentMoney();
             foreach (var towerButton in towerButtons)
             {
                 towerButton.RefreshButtonAvailability(currentMoney);

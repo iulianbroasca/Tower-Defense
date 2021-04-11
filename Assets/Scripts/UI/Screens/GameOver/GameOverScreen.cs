@@ -1,9 +1,7 @@
 using Game.Managers;
 using UI.BaseScripts;
 using UI.Managers;
-using UI.Screens.Game;
 using UI.Screens.MapSelection;
-using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI.Screens.GameOver
@@ -15,10 +13,10 @@ namespace UI.Screens.GameOver
         private void Awake()
         {
             restartButton = GetComponentInChildren<Button>();
-            restartButton.onClick.AddListener(Restart);
+            restartButton.onClick.AddListener(RestartGame);
         }
 
-        private void Restart()
+        private void RestartGame()
         {
             GameManager.Instance.RestartGame();
             ScreensManager.Instance.SwitchScreen(typeof(MapSelectionScreen));
