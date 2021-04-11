@@ -89,6 +89,7 @@ namespace BalloonsMechanism.Managers
 
             balloonsInstantiationConfig = balloonsContainer.GetBalloonsRouteConfiguration();
             balloonsInstantiationConfig.ResetTimeInterval();
+            BalloonComponent.SetSpeed(balloonsInstantiationConfig.GetSpeedInterval());
         }
 
     }

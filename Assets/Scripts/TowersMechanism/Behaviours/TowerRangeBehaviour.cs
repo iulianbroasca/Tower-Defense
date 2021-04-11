@@ -34,10 +34,10 @@ namespace TowersMechanism.Behaviours
             detectedBalloons.Invoke(balloons, numBalloons);
         }
 
-        public void SetRangeData(Vector3 position, float range, float bulletLoadingTime)
+        public void SetRangeData(Vector3 position, Vector3 scale, float range, float bulletLoadingTime)
         {
             transform.localPosition = position;
-            transform.localScale = Vector3.one * range;
+            transform.localScale = new Vector3(1 / scale.x, 1 / scale.y, 1 / scale.y) * range;
             radius = range / 2.0f;
             this.bulletLoadingTime = bulletLoadingTime;
         }

@@ -14,14 +14,14 @@ namespace TowersMechanism.Components
         private void Awake()
         {
             towerLookAtBehaviour = GetComponentInChildren<TowerLookAtBehaviour>();
-            if(towerLookAtBehaviour)
-                gameObject.AddComponent<TowerLookAtBehaviour>();
+            if(towerLookAtBehaviour == null)
+                towerLookAtBehaviour = gameObject.AddComponent<TowerLookAtBehaviour>();
         }
 
         public void SetTowerRangeBehaviour(TowerRangeBehaviour towerRange, float towerDataRange, float bulletLoadingTime)
         {
             towerRangeBehaviour = Instantiate(towerRange, transform);
-            towerRangeBehaviour.SetRangeData(Constants.TowerRangePosition, towerDataRange, bulletLoadingTime);
+            towerRangeBehaviour.SetRangeData(Constants.TowerRangePosition, transform.localScale, towerDataRange, bulletLoadingTime);
             towerRangeBehaviour.RegisterEventDetectedBalloons(AttackBalloons);
         }
 
@@ -29,6 +29,7 @@ namespace TowersMechanism.Components
         {
             towerAttackBehaviour = Instantiate(towerAttack, transform);
             towerAttackBehaviour.BulletSpeed = bulletSpeed;
+            towerAttackBehaviour.SetPosition(transform.Find(Constants.PointAttack).localPosition);
         }
 
         public void SetActiveTowerRange(bool value)
@@ -43,9 +44,8 @@ namespace TowersMechanism.Components
 
         private void AttackBalloons(Collider[] balloons, int numBalloons)
         {
-            var position = balloons.First().transform.position;
-            towerAttackBehaviour.AttackBalloon(position);
-            towerLookAtBehaviour.LookAt(position);
+            towerAttackBehaviour.AttackBalloon(balloons.First().transform.position);
+            towerLookAtBehaviour.LookAt(balloons.First().transform);
         }
     }
 }

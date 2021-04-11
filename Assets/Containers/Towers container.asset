@@ -13,30 +13,54 @@ MonoBehaviour:
   m_Name: Towers container
   m_EditorClassIdentifier: 
   towers:
-  - towerComponent: {fileID: -9001248457527836770, guid: f94b214a72f90e44998334197596db1d, type: 3}
+  - towerComponent: {fileID: 1811891385, guid: be5791266b69017409d2f6ded2f90d50, type: 3}
     towerData:
       id: 0
-      name: Capsule
-      price: 130
-      range: 4
-      bulletSpeed: 50
-      bulletLoadingTime: 0.5
-  - towerComponent: {fileID: -1572454670350873089, guid: c92521be1c6f66d479900ca3251941ca, type: 3}
+      name: Chicken
+      price: 110
+      range: 1.5
+      bulletSpeed: 15
+      bulletLoadingTime: 1
+  - towerComponent: {fileID: 24386067, guid: 4c5a0eefd65563a4880c03734e3671c5, type: 3}
     towerData:
       id: 10
-      name: Cube
-      price: 200
-      range: 6
-      bulletSpeed: 50
-      bulletLoadingTime: 0.7
-  - towerComponent: {fileID: 2163648877642404003, guid: 4ccb0f305a0c5aa4796a5d682deb4cd1, type: 3}
+      name: Cyclops
+      price: 220
+      range: 2
+      bulletSpeed: 20
+      bulletLoadingTime: 0.8
+  - towerComponent: {fileID: 3070948, guid: 5a6595054cc35764eb2611a41e5fa43b, type: 3}
     towerData:
-      id: 20
-      name: Sphere
-      price: 350
-      range: 8
-      bulletSpeed: 50
-      bulletLoadingTime: 1
+      id: 30
+      name: Fiery
+      price: 360
+      range: 3
+      bulletSpeed: 30
+      bulletLoadingTime: 0.8
+  - towerComponent: {fileID: 2841654876396755332, guid: ce3257d91c55bc9408e659d280c940c4, type: 3}
+    towerData:
+      id: 40
+      name: Tower 01
+      price: 580
+      range: 4
+      bulletSpeed: 45
+      bulletLoadingTime: 0.7
+  - towerComponent: {fileID: 1673694440, guid: 82893168acb6ec94eb3fba7b05201626, type: 3}
+    towerData:
+      id: 50
+      name: Tower 02
+      price: 670
+      range: 5
+      bulletSpeed: 60
+      bulletLoadingTime: 0.6
+  - towerComponent: {fileID: 393560462, guid: 7484c519e49a32d43b784dbd7b8be0cd, type: 3}
+    towerData:
+      id: 60
+      name: Tower 03
+      price: 840
+      range: 6
+      bulletSpeed: 75
+      bulletLoadingTime: 0.5
   towerRangeBehaviour: {fileID: 2034788299661086410, guid: caee200e71b4bf345b9b7fc6e1596d8b, type: 3}
   towerBulletBehaviour: {fileID: 5428930310641120121, guid: ac7e1926842802f4da57e4d327696be7, type: 3}
   towerAttackBehaviour: {fileID: 8682017642342239773, guid: 6599ae1816929ec43ac22318d29e0473, type: 3}

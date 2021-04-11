@@ -12,7 +12,8 @@ namespace BalloonsMechanism.Models
         [SerializeField] private float supMaxTime;
         [SerializeField] private float minStep;
         [SerializeField] private float maxStep;
-        [SerializeField] private float stepForStep;
+        [SerializeField] private float decreaseStep;
+        [SerializeField] private Vector2 speedInterval;
 
 
         private float infTime;
@@ -40,6 +41,11 @@ namespace BalloonsMechanism.Models
         {
             DecreaseTimeInterval();
             return (infTime, supTime);
+        }
+
+        public Vector2 GetSpeedInterval()
+        {
+            return speedInterval;
         }
 
         private void DecreaseTimeInterval()
@@ -88,9 +94,9 @@ namespace BalloonsMechanism.Models
             if(step == minStep)
                 return;
 
-            if (step - stepForStep >= minStep)
+            if (step - decreaseStep >= minStep)
             {
-                step -= stepForStep;
+                step -= decreaseStep;
             }
         }
     }

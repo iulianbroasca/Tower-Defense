@@ -1,5 +1,6 @@
 using System.Linq;
 using BalloonsMechanism.Managers;
+using Game.Managers;
 using Map.Managers;
 using UI.Managers;
 using UI.Screens.GameOver;
@@ -11,16 +12,18 @@ namespace BalloonsMechanism.Components
     {
         private static Vector3[] positions;
         private static bool completed;
-
+        private static Vector2 speedInterval;
         private int currentIndexPosition;
 
         private bool touched;
+        private float randomSpeed;
 
         private void OnEnable()
         {
             SetRoutePositions(MapsManager.Instance.GetCurrentMap().GetRoutePositions());
             transform.localPosition = positions.First();
             currentIndexPosition = 0;
+            randomSpeed = 0;
             touched = false;
         }
 
@@ -31,7 +34,7 @@ namespace BalloonsMechanism.Components
 
             transform.position = Vector3.MoveTowards(transform.position,
                 positions[currentIndexPosition],
-                10 * Time.deltaTime);
+                GetRandomSpeed() * Time.deltaTime);
         }
 
         private void LateUpdate()
@@ -53,10 +56,25 @@ namespace BalloonsMechanism.Components
             BalloonsManager.Instance.BalloonTouched(this);
         }
 
+        public static void SetSpeed(Vector2 speed)
+        {
+            speedInterval = speed;
+        }
+
         public static void RestartGame()
         {
             completed = false;
             positions = null;
+        }
+
+        private float GetRandomSpeed()
+        {
+            if (randomSpeed != 0) 
+                return randomSpeed;
+
+            var level = GameManager.Instance.GetCurrentLevel();
+            randomSpeed = Random.Range(speedInterval.x + level / 20f, speedInterval.y + level / 10f);
+            return randomSpeed;
         }
 
         private void SetRoutePositions(Vector3[] routePositions)

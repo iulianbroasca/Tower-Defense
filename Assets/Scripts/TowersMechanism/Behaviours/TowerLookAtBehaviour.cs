@@ -4,9 +4,10 @@ namespace TowersMechanism.Behaviours
 {
     public class TowerLookAtBehaviour : MonoBehaviour
     {
-        public void LookAt(Vector3 position)
+        public void LookAt(Transform target)
         {
-            transform.LookAt(new Vector3(position.x, transform.localPosition.y ,position.y));
+            transform.LookAt(target);
+            transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, transform.localEulerAngles.z);
         }
     }
 }
