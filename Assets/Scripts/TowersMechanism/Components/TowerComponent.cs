@@ -7,8 +7,16 @@ namespace TowersMechanism.Components
 {
     public class TowerComponent : MonoBehaviour
     {
+        private TowerLookAtBehaviour towerLookAtBehaviour;
         private TowerRangeBehaviour towerRangeBehaviour;
         private TowerAttackBehaviour towerAttackBehaviour;
+
+        private void Awake()
+        {
+            towerLookAtBehaviour = GetComponentInChildren<TowerLookAtBehaviour>();
+            if(towerLookAtBehaviour)
+                gameObject.AddComponent<TowerLookAtBehaviour>();
+        }
 
         public void SetTowerRangeBehaviour(TowerRangeBehaviour towerRange, float towerDataRange, float bulletLoadingTime)
         {
@@ -35,7 +43,9 @@ namespace TowersMechanism.Components
 
         private void AttackBalloons(Collider[] balloons, int numBalloons)
         {
-            towerAttackBehaviour.AttackBalloon(balloons.First().transform.position);
+            var position = balloons.First().transform.position;
+            towerAttackBehaviour.AttackBalloon(position);
+            towerLookAtBehaviour.LookAt(position);
         }
     }
 }

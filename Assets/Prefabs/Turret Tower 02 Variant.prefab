@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1673694440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524416320684411194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c802e2298bb1dc45a168a86ddf1fbdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1008348356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524861919401277616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985f9a409cbf3dc429faf73b20765e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4525406802189240414
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1281131148181860, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_Name
+      value: Turret Tower 02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4994361471513534, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+--- !u!1 &4524416320684411194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1281131148181860, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+  m_PrefabInstance: {fileID: 4525406802189240414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4524861919401277616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1953229512028398, guid: 20ce9a778a1a8c84e90e64e4df4c6a05, type: 3}
+  m_PrefabInstance: {fileID: 4525406802189240414}
+  m_PrefabAsset: {fileID: 0}
