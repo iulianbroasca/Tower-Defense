@@ -28,6 +28,11 @@ namespace TowersMechanism.Components
             towerRangeBehaviour.SetActiveRangeGameObject(value);
         }
 
+        public void SetColorOnRange(Color color)
+        {
+            towerRangeBehaviour.SetColorOnRangeGameObject(color);
+        }
+
         private void AttackBalloons(Collider[] balloons, int numBalloons)
         {
             towerAttackBehaviour.AttackBalloon(balloons.First().transform.position);

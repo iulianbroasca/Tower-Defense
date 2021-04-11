@@ -14,10 +14,10 @@ namespace TowersMechanism.Managers
     public class TowersManager : MonoSingleton<TowersManager>
     {
         [SerializeField] private TowersContainer towers;
+        [SerializeField] private LayerMask layers;
 
         private bool placementStarted;
-        private int mapLayer;
-        
+
         private Camera placementCamera;
         private RaycastHit raycastHit;
         
@@ -40,9 +40,14 @@ namespace TowersMechanism.Managers
 
         private void FixedUpdate()
         {
-            if (!placementStarted || !Physics.Raycast(placementCamera.ScreenPointToRay(Input.mousePosition), out raycastHit, Mathf.Infinity, mapLayer)) 
+            if (!placementStarted || !Physics.Raycast(placementCamera.ScreenPointToRay(Input.mousePosition), out raycastHit, Mathf.Infinity, layers)) 
                 return;
+
             PlaceOnMap(raycastHit);
+
+            if (!IsOnMap())
+                return;
+
             if (Input.GetMouseButton(0))
             {
                 StopPlacement(raycastHit);
@@ -68,6 +73,7 @@ namespace TowersMechanism.Managers
             placementStarted = false;
             PlaceOnMap(hit);
             currentTower.TowerComponent.SetActiveTowerRange(false);
+            currentTower.TowerComponent.SetColorOnRange(Constants.ColorRangeOnMap);
             towersInScene.Add(currentTower.TowerComponent);
             ResetCurrentTower();
             gameScreen.SetActiveGameModeScreen(true);
@@ -86,6 +92,14 @@ namespace TowersMechanism.Managers
         public void RestartGame()
         {
             ClearTowersFromScene();
+        }
+
+        private bool IsOnMap()
+        {
+            var isOnMap = LayerMask.LayerToName(raycastHit.transform.gameObject.layer).Equals(Constants.MapLayer);
+
+            currentTower.TowerComponent.SetColorOnRange(isOnMap ? Constants.ColorRangeOnMap : Constants.ColorRangeOutsideMap);
+            return isOnMap;
         }
 
         private void ClearTowersFromScene()
@@ -125,7 +139,6 @@ namespace TowersMechanism.Managers
         private void Initialize()
         {
             placementCamera = Camera.main;
-            mapLayer = LayerMask.GetMask(Constants.MapLayer);
             bulletsPool = gameObject.AddComponent<BulletsPool>();
             bulletsPool.RegisterComponent(towers.GetTowerBulletBehaviour());
         }

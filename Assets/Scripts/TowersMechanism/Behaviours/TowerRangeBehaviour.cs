@@ -13,9 +13,9 @@ namespace TowersMechanism.Behaviours
         private float bulletLoadingTime;
         private int balloonLayer;
         private bool loading;
+        private Color currentColor = Color.white;
         private Collider[] balloons;
         private Action<Collider[], int> detectedBalloons;
-
         private void Awake()
         {
             Initialize();
@@ -53,6 +53,13 @@ namespace TowersMechanism.Behaviours
             {
                 detectedBalloons = action;
             }
+        }
+
+        public void SetColorOnRangeGameObject(Color color)
+        {
+            if(currentColor == color)
+                return;
+            rangeGameObject.GetComponent<MeshRenderer>().material.color = color;
         }
 
         private IEnumerator LoadBullets()
