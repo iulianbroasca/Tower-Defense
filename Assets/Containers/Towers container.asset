@@ -20,7 +20,7 @@ MonoBehaviour:
       price: 110
       range: 1.5
       bulletSpeed: 15
-      bulletLoadingTime: 1
+      bulletLoadingTime: 1.2
   - towerComponent: {fileID: 24386067, guid: 4c5a0eefd65563a4880c03734e3671c5, type: 3}
     towerData:
       id: 10
@@ -28,7 +28,7 @@ MonoBehaviour:
       price: 220
       range: 2
       bulletSpeed: 20
-      bulletLoadingTime: 0.8
+      bulletLoadingTime: 1
   - towerComponent: {fileID: 3070948, guid: 5a6595054cc35764eb2611a41e5fa43b, type: 3}
     towerData:
       id: 30
@@ -36,7 +36,7 @@ MonoBehaviour:
       price: 360
       range: 3
       bulletSpeed: 30
-      bulletLoadingTime: 0.8
+      bulletLoadingTime: 1
   - towerComponent: {fileID: 2841654876396755332, guid: ce3257d91c55bc9408e659d280c940c4, type: 3}
     towerData:
       id: 40
@@ -44,7 +44,7 @@ MonoBehaviour:
       price: 580
       range: 4
       bulletSpeed: 45
-      bulletLoadingTime: 0.7
+      bulletLoadingTime: 0.8
   - towerComponent: {fileID: 1673694440, guid: 82893168acb6ec94eb3fba7b05201626, type: 3}
     towerData:
       id: 50
@@ -52,7 +52,7 @@ MonoBehaviour:
       price: 670
       range: 5
       bulletSpeed: 60
-      bulletLoadingTime: 0.6
+      bulletLoadingTime: 0.65
   - towerComponent: {fileID: 393560462, guid: 7484c519e49a32d43b784dbd7b8be0cd, type: 3}
     towerData:
       id: 60

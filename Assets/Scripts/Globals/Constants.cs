@@ -7,7 +7,7 @@ namespace Globals
         public static readonly Vector3 TowerRangePosition =  new Vector3(0,0.01f,0);
         public static readonly Color ColorRangeOnMap = new Color(0, 0, 0, 0.375f);
         public static readonly Color ColorRangeOutsideMap = new Color(1,0,0, 0.375f);
-        public const int PlayerMoney = 350;
+        public const int PlayerMoney = 150;
 
         public const float CameraSpeed = 16;
 

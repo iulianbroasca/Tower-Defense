@@ -15,12 +15,12 @@ MonoBehaviour:
   balloonsInstantiationConfig:
     infMinTime: 0
     infMaxTime: 2
-    supMinTime: 0.5
-    supMaxTime: 2.5
-    minStep: 0.1
+    supMinTime: 0.3
+    supMaxTime: 3
+    minStep: 0.3
     maxStep: 0.85
     decreaseStep: 0.25
     speedInterval: {x: 7.5, y: 9}
   balloonComponent: {fileID: 6361020970718966053, guid: 9702355dc59d66e499c3b8e600be9fa6, type: 3}
   numberOfBalloonsPerLevel: 2
-  moneyPerBalloon: 20
+  moneyPerBalloon: 15

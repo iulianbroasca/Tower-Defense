@@ -68,7 +68,7 @@ namespace BalloonsMechanism.Components
                 return randomSpeed;
 
             var level = GameManager.Instance.GetCurrentLevel();
-            randomSpeed = Random.Range(speedInterval.x + level / 20f, speedInterval.y + level / 10f);
+            randomSpeed = Random.Range(speedInterval.x + level / 15f, speedInterval.y + level / 5f);
             return randomSpeed;
         }
 
