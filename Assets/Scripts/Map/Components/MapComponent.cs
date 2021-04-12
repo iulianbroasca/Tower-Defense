@@ -9,7 +9,7 @@ namespace Map.Components
 
         public Vector3[] GetRoutePositions()
         {
-            return ReturnGlobalPoints(routePositions);
+            return ReturnPointsWorldSpace(routePositions);
         }
 
         public Vector3 GetCameraPoint()
@@ -17,7 +17,7 @@ namespace Map.Components
             return cameraPoint.transform.position;
         }
 
-        private Vector3[] ReturnGlobalPoints(Vector3[] positions)
+        private Vector3[] ReturnPointsWorldSpace(Vector3[] positions)
         {
             var localPositions = new Vector3[positions.Length];
 

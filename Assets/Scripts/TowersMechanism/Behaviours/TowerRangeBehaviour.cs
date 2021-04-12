@@ -16,6 +16,7 @@ namespace TowersMechanism.Behaviours
         private Color currentColor = Color.white;
         private Collider[] balloons;
         private Action<Collider[], int> detectedBalloons;
+
         private void Awake()
         {
             Initialize();

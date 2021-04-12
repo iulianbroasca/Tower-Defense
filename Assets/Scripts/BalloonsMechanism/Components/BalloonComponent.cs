@@ -1,7 +1,6 @@
 using System.Linq;
 using BalloonsMechanism.Managers;
 using Game.Managers;
-using Map.Managers;
 using UI.Managers;
 using UI.Screens.GameOver;
 using UnityEngine;
@@ -20,11 +19,7 @@ namespace BalloonsMechanism.Components
 
         private void OnEnable()
         {
-            SetRoutePositions(MapsManager.Instance.GetCurrentMap().GetRoutePositions());
-            transform.localPosition = positions.First();
-            currentIndexPosition = 0;
-            randomSpeed = 0;
-            touched = false;
+            InitializeBalloon();
         }
 
         private void Update()
@@ -77,7 +72,7 @@ namespace BalloonsMechanism.Components
             return randomSpeed;
         }
 
-        private void SetRoutePositions(Vector3[] routePositions)
+        public static void SetRoutePositions(Vector3[] routePositions)
         {
             if (positions == null)
             {
@@ -89,6 +84,14 @@ namespace BalloonsMechanism.Components
         {
             completed = true;
             ScreensManager.Instance.SwitchScreen(typeof(GameOverScreen));
+        }
+
+        private void InitializeBalloon()
+        {
+            transform.localPosition = positions.First();
+            currentIndexPosition = 0;
+            randomSpeed = 0;
+            touched = false;
         }
 
         private void OnDisable()

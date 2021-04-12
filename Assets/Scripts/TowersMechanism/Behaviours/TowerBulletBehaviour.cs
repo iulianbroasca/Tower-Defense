@@ -12,7 +12,7 @@ namespace TowersMechanism.Behaviours
         private Rigidbody rigidbody;
 
         private bool touched;
-        public Rigidbody RigidbodyComponent
+        private Rigidbody RigidbodyComponent
         {
             get
             {
@@ -39,6 +39,7 @@ namespace TowersMechanism.Behaviours
             RigidbodyComponent.velocity = Vector3.zero;
             RigidbodyComponent.angularVelocity = Vector3.zero;
         }
+
         private IEnumerator Destroy()
         {
             yield return new WaitForSeconds(Constants.BulletLife);
@@ -65,6 +66,5 @@ namespace TowersMechanism.Behaviours
 
             touched = true;
         }
-    
     }
 }

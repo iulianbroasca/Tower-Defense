@@ -14,7 +14,6 @@ namespace ScriptableObjects
         private int numberOfBalloonsPerLevel = 1;
         [SerializeField, Range(10,100)] private int moneyPerBalloon = 50;
 
-
         public int NumberOfBalloonsPerLevel => numberOfBalloonsPerLevel;
         public int MoneyPerBalloon => moneyPerBalloon;
 

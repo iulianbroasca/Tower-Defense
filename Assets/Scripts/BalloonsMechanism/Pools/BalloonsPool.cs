@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using BalloonsMechanism.Components;
 using ObjectPool.BaseScripts;
 
-namespace BalloonsMechanism
+namespace BalloonsMechanism.Pools
 {
     public class BalloonsPool : BaseObjectPool<BalloonComponent>
     {
@@ -55,6 +55,5 @@ namespace BalloonsMechanism
                 balloonsDestroyed.Invoke();
             }
         }
-
     }
 }

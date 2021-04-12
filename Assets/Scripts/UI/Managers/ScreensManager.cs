@@ -9,20 +9,15 @@ namespace UI.Managers
 {
     public class ScreensManager : MonoSingleton<ScreensManager>
     {
-        private GameObject RootCanvas { get; set; }
-        private BaseScreen CurrentBaseScreen { get; set; }
-
         private readonly Dictionary<object, BaseScreen> screens = new Dictionary<object, BaseScreen>();
+
+        private GameObject rootCanvas;
+        private BaseScreen currentBaseScreen;
 
         protected override void Awake()
         {
             base.Awake();
             Initialization();
-        }
-
-        public BaseScreen GetCurrentScreen()
-        {
-            return CurrentBaseScreen;
         }
 
         public BaseScreen GetScreen(object screenType)
@@ -33,18 +28,18 @@ namespace UI.Managers
 
         public void SwitchScreen(object screenType)
         {
-            var lastScreen = CurrentBaseScreen;
-            CurrentBaseScreen = GetScreen(screenType);
+            var lastScreen = currentBaseScreen;
+            currentBaseScreen = GetScreen(screenType);
 
             lastScreen.RefreshScreen();
             lastScreen.DisableScreen();
 
-            CurrentBaseScreen.EnableScreen();
+            currentBaseScreen.EnableScreen();
         }
 
         protected void LoadScreens()
         {
-            foreach (var screen in RootCanvas.GetComponentsInChildren<BaseScreen>(true))
+            foreach (var screen in rootCanvas.GetComponentsInChildren<BaseScreen>(true))
             {
                 screens.Add(screen.GetType(), screen);
             }
@@ -52,10 +47,10 @@ namespace UI.Managers
 
         private void Initialization()
         {
-            RootCanvas = GameObject.FindWithTag(Constants.MainCanvasTag);
+            rootCanvas = GameObject.FindWithTag(Constants.MainCanvasTag);
             LoadScreens();
-            CurrentBaseScreen = GameObject.FindWithTag(Constants.HomeScreenTag).GetComponent<BaseScreen>();
-            CurrentBaseScreen.EnableScreen();
+            currentBaseScreen = GameObject.FindWithTag(Constants.HomeScreenTag).GetComponent<BaseScreen>();
+            currentBaseScreen.EnableScreen();
         }
     }
 }

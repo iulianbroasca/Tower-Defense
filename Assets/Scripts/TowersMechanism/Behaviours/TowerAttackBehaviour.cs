@@ -5,7 +5,7 @@ namespace TowersMechanism.Behaviours
 {
     public class TowerAttackBehaviour : MonoBehaviour
     {
-        public float BulletSpeed { get; set; }
+        public float BulletSpeed { private get; set; }
 
         public void SetPosition(Vector3 position)
         {

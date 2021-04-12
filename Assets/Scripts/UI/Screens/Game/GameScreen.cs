@@ -11,11 +11,7 @@ namespace UI.Screens.Game
         public override void EnableScreen()
         {
             base.EnableScreen();
-            towersConfiguration = GetComponentInChildren<TowersConfiguration>();
-            gameMode = GetComponentInChildren<GameMode>();
-            SetMoneyText(GameManager.Instance.GetCurrentMoney().ToString());
-            SetLevelText(GameManager.Instance.GetCurrentLevel().ToString());
-            gameMode.SetInteractableOnPlayButton(false);
+            Initialize();
         }
 
         public override void DisableScreen()
@@ -38,6 +34,15 @@ namespace UI.Screens.Game
         {
             gameMode.SetInteractableOnPlayButton(value);
             towersConfiguration.gameObject.SetActive(value);
+        }
+
+        private void Initialize()
+        {
+            towersConfiguration = GetComponentInChildren<TowersConfiguration>();
+            gameMode = GetComponentInChildren<GameMode>();
+            SetMoneyText(GameManager.Instance.GetCurrentMoney().ToString());
+            SetLevelText(GameManager.Instance.GetCurrentLevel().ToString());
+            gameMode.SetInteractableOnPlayButton(false);
         }
     }
 }

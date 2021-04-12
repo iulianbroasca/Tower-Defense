@@ -2,7 +2,7 @@ using Map.Components;
 using UnityEditor;
 using UnityEngine;
 
-namespace Utils
+namespace Editor
 {
     [RequireComponent(typeof(MapComponent))]
     public class GenerateMap : MonoBehaviour
@@ -27,9 +27,9 @@ namespace Utils
             margins.transform.parent = tilesGameObject.transform;
 
             var current = Vector3.zero;
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
             {
-                for (int j = 0; j < size; j++)
+                for (var j = 0; j < size; j++)
                 {
                     GameObject obj;
                     if (i == size - 1 || j == size - 1 || i == 0 || j == 0)
@@ -69,7 +69,6 @@ namespace Utils
                 {
                     DestroyImmediate(collider);
                 }
-
             }
         }
     }

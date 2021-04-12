@@ -16,7 +16,6 @@ namespace Map.Managers
         {
             base.Awake();
             Initialize();
-
         }
 
         public MapComponent GetCurrentMap()

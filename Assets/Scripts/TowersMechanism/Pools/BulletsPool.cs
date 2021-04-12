@@ -1,7 +1,7 @@
-using TowersMechanism.Behaviours;
 using ObjectPool.BaseScripts;
+using TowersMechanism.Behaviours;
 
-namespace TowersMechanism
+namespace TowersMechanism.Pools
 {
     public class BulletsPool : BaseObjectPool<TowerBulletBehaviour>
     {

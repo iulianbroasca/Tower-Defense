@@ -1,3 +1,4 @@
+using BalloonsMechanism.Components;
 using CameraMechanism;
 using Map.Managers;
 using UI.BaseScripts;
@@ -24,6 +25,7 @@ namespace UI.Screens.MapSelection
         private void StartGame()
         {
             ScreensManager.Instance.SwitchScreen(typeof(GameScreen));
+            BalloonComponent.SetRoutePositions(MapsManager.Instance.GetCurrentMap().GetRoutePositions());
         }
 
         private void NextMap()
