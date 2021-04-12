@@ -83,6 +83,7 @@ namespace BalloonsMechanism.Components
         private void CompleteRoute()
         {
             completed = true;
+            BalloonsManager.Instance.StopInstantiation();
             ScreensManager.Instance.SwitchScreen(typeof(GameOverScreen));
         }
 
